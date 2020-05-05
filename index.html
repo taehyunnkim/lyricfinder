@@ -1,0 +1,37 @@
+<!--
+  Name: Eric Kim
+  Date: May 03, 2020
+  Section: CSE 154 AK
+  This index.html is the mainpage for my lyric finder creative work. Here,
+  the user could input the name of the artist and the title of their song
+  to get the lyrics.
+-->
+
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <title>CP 3 - Lyric Finder</title>
+    <link rel='stylesheet' href='styles.css'>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <script src='index.js'></script>
+  </head>
+  <body>
+    <div class='container'>
+      <h1>Eric Kim's Lyric Finder</h1>
+      <section>
+        <label for="artist">Artist</label>
+        <input type="text" id="artist" name="artist" autocomplete="off">
+        <label for="title">Song Title</label>
+        <input type="text" id="title" name="title" autocomplete="off"><br><br>
+        <button>Find Lyric</button>
+      </section>
+      <section id='lyrics'>
+        <p></p>
+      </section>
+      <footer>
+        <p>The app uses this <a href='https://lyricsovh.docs.apiary.io/#'>Lyric API</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>
