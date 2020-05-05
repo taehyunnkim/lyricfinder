@@ -10,7 +10,7 @@
 
 'use strict';
 (function() {
-  const BASE_URL = "https://api.lyrics.ovh/v1/"; 
+  const BASE_URL = "https://api.lyrics.ovh/v1/";
 
   window.addEventListener('load', init);
 
@@ -47,7 +47,7 @@
   }
 
   /**
-   * Checks the response status. 
+   * Checks the response status.
    * @param {Object} response - the response of the request to check the status.
    * @return {Object} response - the response of the request to check the status.
    * @throws {Error} will throw an error if the response code is not in the 200-299 range.
