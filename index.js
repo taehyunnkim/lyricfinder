@@ -15,11 +15,23 @@
   window.addEventListener('load', init);
 
   /**
-   * Sets up the button in the homepage
+   * Sets up the button in the homepage.
+   * Appropriately manipulates the UI of the homepage
+   * with user's input.
    */
   function init() {
     let button = document.querySelector('button');
-    button.addEventListener('click', makeRequest);
+
+    button.addEventListener('click', function() {
+      let artist = document.getElementById('artist').value;
+      let title = document.getElementById('title').value;
+      if (artist !== '' && title !== '') {
+        printData('Searching...');
+        makeRequest();
+      } else {
+        printData('Please fill in the form!');
+      }
+    });
   }
 
   /**
@@ -40,10 +52,10 @@
 
   /**
    * Prints the lyrics in the homepage with the given JSON data.
-   * @param {JSONObject} responseData - the data to print lyrics in the homepage.
+   * @param {JSONObject} responseData - the lyric data to print lyrics in the homepage.
    */
   function processData(responseData) {
-    printLyrics(responseData.lyrics);
+    printData(responseData.lyrics);
   }
 
   /**
@@ -64,20 +76,20 @@
    * Prints in the homepage that no definition was found.
    */
   function handleError() {
-    printLyrics('No Lyrics Found');
+    printData('No Lyrics Found');
   }
 
   /**
-   * Prints the lyrics in the homepage with the given data.
+   * Prints the given data in the homepage.
    * @param {String} data - the lyric of a song.
    */
-  function printLyrics(data) {
-    let oldLyrics = document.querySelector('p');
-    let lyricsContainer = document.getElementById('lyrics');
-    let lyrics = document.createElement('p');
-    lyrics.textContent = data;
+  function printData(data) {
+    let oldData = document.querySelector('p');
+    let dataContainer = document.getElementById('lyrics');
+    let dataParagraph = document.createElement('p');
+    dataParagraph.textContent = data;
 
-    lyricsContainer.replaceChild(lyrics, oldLyrics);
+    dataContainer.replaceChild(dataParagraph, oldData);
   }
 
 })();
